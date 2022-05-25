@@ -33,7 +33,13 @@ const upload = multer({
   }
 })
 
-app.post('/upload-single', upload.single('fieldUpload'), (req, res) => {
+app.post('/upload-single',upload.single('fieldUpload'), (req, res) => {
+  res.status(200).json({
+    message: 'berhasil upload file'
+  })
+})
+
+app.post('/upload-multi',upload.array('fieldMultiUpload', 5), (req, res) => {
   res.status(200).json({
     message: 'berhasil upload file'
   })
